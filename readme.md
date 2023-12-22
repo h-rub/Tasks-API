@@ -5,7 +5,9 @@
 ##### Habilitar entorno virtual para terminal
 Windows: `.\venv\Scripts\activate`
 * Si la terminal no permite ejecutar script:
+
 `Set-ExecutionPolicy RemoteSigned -Scope Process`
+
 `.\venv\Scripts\activate`
 
 Mac: `source venv/bin/activate`
@@ -15,6 +17,7 @@ Mac: `source venv/bin/activate`
 
 ##### Iniciar servidor
 entrar a carpeta core `cd core`
+
 `python manage.py runserver`
 
 Usar VSCode Thunder Client Extension o Navegador a "http://localhost:8000/api/tasks"
