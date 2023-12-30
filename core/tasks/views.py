@@ -7,13 +7,20 @@ from .models import Task, SubTask
 from .serializers import TaskSerializer, SubTaskSerializer
 
 # Create your views here.
-class TaskListAPIView(APIView): # Access with http://localhost:8000/api/tasks
-    def get(self, request): # GET request will return a list of all tasks in the db
+class TaskListAPIView(APIView): 
+    """
+    Access with http://localhost:8000/api/tasks
+
+    GET: request will return a list of all tasks in the db 
+    POST: request will create an entry in the db and return the entry just created
+    """
+    def get(self, request):
+        """ GET request will return a list of all tasks in the db """
         tasks = Task.objects.all()
         serializer = TaskSerializer(tasks, many=True)
         return Response(serializer.data)
     
-    def post(self, request): # POST request will create an entry in the db and return the entry just created
+    def post(self, request):
         serializer = TaskSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
